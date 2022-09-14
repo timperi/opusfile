@@ -260,8 +260,13 @@ static const OpusFileCallbacks OP_UNSEEKABLE_FILE_CALLBACKS={
   (op_close_func)fclose
 };
 
+#ifndef WIN32_LEAN_AND_MEAN
 # define WIN32_LEAN_AND_MEAN
+#endif
+
+#ifndef WIN32_EXTRA_LEAN
 # define WIN32_EXTRA_LEAN
+#endif
 # include <windows.h>
 
 static const OpusFileCallbacks *op_get_file_callbacks(FILE *_fp){
